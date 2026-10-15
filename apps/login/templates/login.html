@@ -1,0 +1,57 @@
+{% extends 'base-login.html' %}
+{% block title %}Login {% endblock %}
+{% block content %}
+
+<h1 class="text-3xl font-bold text-center mb-2">
+        Bem-vindo!
+    </h1>
+
+    <form method="POST" class="space-y-5">
+        {% csrf_token %}
+
+        <div>
+            <label for="email" class="block text-sm mb-2 text-zinc-300">
+                Usuário:
+            </label>
+
+            <input
+                type="usuario"
+                id="usuario"
+                name="usuario"
+                placeholder="Usuário"
+                required
+                class="w-full p-3 rounded-lg bg-zinc-800 border border-zinc-700 outline-none focus:border-violet-500"
+            />
+        </div>
+
+        <div>
+            <label for="senha" class="block text-sm mb-2 text-zinc-300">
+                Senha:
+            </label>
+
+            <input
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="Digite sua senha"
+                required
+                class="w-full p-3 rounded-lg bg-zinc-800 border border-zinc-700 outline-none focus:border-violet-500"
+            />
+        </div>
+
+        <button
+            type="submit"
+            class="w-full bg-violet-600 hover:bg-violet-700 transition p-3 rounded-lg font-semibold"
+        >
+            Entrar
+        </button>
+    </form>
+
+    <p class="text-center text-zinc-400 text-sm mt-6">
+        Não possui cadastro?
+        <a href="novoUsuario/" class="text-violet-400 hover:text-violet-300">
+            Cadastre-se
+        </a>
+    </p>
+
+{% endblock %}
