@@ -1,0 +1,86 @@
+
+<form class="mx-auto max-w-xl space-y-3 rounded-lg border border-stone-800 bg-stone-900 p-4">
+
+  <div class="border-b border-stone-800 pb-3">
+    <h2 class="text-md font-semibold text-stone-100">
+      <i class="fa-solid fa-pizza-slice mr-2 text-orange-400"></i>
+      Cadastro de pizza
+    </h2>
+    <p class="mt-1 text-sm text-stone-400">
+      Preencha os dados da pizza.
+    </p>
+  </div>
+
+  <div>
+    <label for="nome" class="mb-1 block text-sm font-medium text-stone-300">
+      Nome da pizza
+    </label>
+    <input
+      type="text"
+      id="nome"
+      name="nome"
+      maxlength="100"
+      placeholder="Ex.: Calabresa"
+      class="w-full rounded-md border border-stone-700 bg-stone-950 px-3 py-1.5 text-sm text-stone-100 outline-none transition placeholder:text-stone-600 focus:border-orange-500"
+    >
+  </div>
+
+  <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+    <div>
+      <label for="preco" class="mb-1 block text-sm font-medium text-stone-300">
+        Preço (R$)
+      </label>
+      <input
+        type="number"
+        id="preco"
+        name="preco"
+        min="0"
+        step="0.01"
+        placeholder="0,00"
+        class="w-full rounded-md border border-stone-700 bg-stone-950 px-3 py-1.5 text-sm text-stone-100 outline-none transition placeholder:text-stone-600 focus:border-orange-500"
+      >
+    </div>
+
+    <div>
+  <label for="categoria" class="mb-1 block text-sm font-medium text-stone-300">
+    Categoria
+  </label>
+
+  <select
+    id="categoria"
+    name="categoria"
+    class="select select-sm w-full border-stone-700 bg-stone-950 text-stone-200 focus:border-orange-500"
+  >
+    <option value="" disabled selected>Selecione uma categoria</option>
+
+    {% for valor, nome_categoria in categorias %}
+      <option value="{{ valor }}">{{ nome_categoria }}</option>
+    {% endfor %}
+  </select>
+</div>
+  </div>
+
+  <div>
+    <label for="ingredientes" class="mb-1 block text-sm font-medium text-stone-300">
+      Ingredientes
+    </label>
+    <textarea
+      id="ingredientes"
+      name="ingredientes"
+      rows="3"
+      placeholder="Descreva os ingredientes..."
+      class="w-full resize-y rounded-md border border-stone-700 bg-stone-950 px-3 py-1.5 text-sm text-stone-100 outline-none transition placeholder:text-stone-600 focus:border-orange-500"
+    ></textarea>
+  </div>
+
+  <div class="flex justify-end border-t border-stone-800 pt-3">
+    <button
+      type="button"
+      class="inline-flex items-center gap-2 rounded-md bg-orange-600 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/50"
+    >
+      <i class="fa-solid fa-plus text-xs"></i>
+      Cadastrar pizza
+    </button>
+  </div>
+
+</form>
