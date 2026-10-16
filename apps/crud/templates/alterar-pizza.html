@@ -1,0 +1,55 @@
+{% extends 'base-crud.html' %}
+{% load static %}
+
+{% block title %}Alterar Pizza | Forno & Massa{% endblock %}
+
+{% block content %}
+<div class="py-4">
+  <div class="mb-5 flex items-center gap-3">
+    <a
+      href="{% url 'index' %}"
+      class="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-700 bg-stone-800 text-stone-300 transition duration-200 hover:border-stone-600 hover:bg-stone-700 hover:text-stone-100 focus:outline-none focus:ring-2 focus:ring-stone-500"
+      aria-label="Voltar"
+      title="Voltar"
+    >
+      <i class="fa-solid fa-arrow-left text-sm"></i>
+    </a>
+
+    <div>
+      <h1 class="text-lg font-semibold text-stone-100">Alterar Pizza</h1>
+      <p class="text-xs text-stone-400">
+        Atualize os dados da pizza cadastrada.
+      </p>
+    </div>
+  </div>
+
+  <form
+    method="POST"
+    action="{% url 'alterar_pizza' pizza.id %}"
+    class="mx-auto max-w-xl space-y-3 rounded-xl border border-stone-800 bg-stone-900 p-4 shadow-sm"
+  >
+    {% csrf_token %}
+    {% include 'includes/form.html' %}
+
+    <div class="flex justify-between border-t border-stone-800 pt-3">
+      <a
+        href="{% url 'index' %}"
+        class="inline-flex items-center gap-2 rounded-lg border border-stone-700 bg-stone-800 px-4 py-2 text-sm font-medium text-stone-300 transition duration-200 hover:border-stone-600 hover:bg-stone-700 hover:text-stone-100 focus:outline-none focus:ring-2 focus:ring-stone-500"
+      >
+        <i class="fa-solid fa-arrow-left text-xs"></i>
+        Voltar
+      </a>
+
+      <button
+        type="submit"
+        class="inline-flex items-center gap-2 rounded-lg border border-amber-500/30 bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 shadow-sm transition duration-200 hover:bg-amber-400 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-stone-950"
+      >
+        <i class="fa-solid fa-floppy-disk text-xs"></i>
+        Salvar alterações
+      </button>
+    </div>
+  </form>
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

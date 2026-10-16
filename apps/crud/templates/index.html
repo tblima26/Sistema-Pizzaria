@@ -1,6 +1,5 @@
-
-{% extends 'base-crud.html' %}
-{% block title %}Forno & Massa | Início{% endblock %}
+{% extends 'base-crud.html' %} 
+{% block title %}Forno & Massa | Início{%endblock %} 
 {% block content %}
 
 <div class="py-8">
@@ -14,43 +13,84 @@
       Bem-vindo ao sistema de gestão da sua pizzaria.
     </p>
   </div>
+
   <!-- Cabeçalho da lista -->
-  <div class="mb-4 flex items-center justify-between">
-    <h2 class="text-lg font-semibold text-stone-100">
-      Pizzas cadastradas
-    </h2>
-    <a href="#"
-       class="rounded-lg bg-red-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-red-600">
-      <i class="fa-solid fa-plus mr-1"></i>
+  <div class="mb-4 flex items-center justify-between gap-4">
+    <h2 class="text-lg font-semibold text-stone-100">Pizzas cadastradas</h2>
+
+    <a
+      href="{% url 'nova_pizza' %}"
+      class="inline-flex items-center gap-2 rounded-lg border border-amber-500/30 bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 shadow-sm transition duration-200 hover:bg-amber-400 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-stone-950"
+    >
+      <i class="fa-solid fa-plus"></i>
       Cadastrar pizza
     </a>
   </div>
+
   <!-- Lista -->
-  <div class="overflow-hidden rounded-xl border border-stone-800 bg-stone-900">
+  <div
+    class="overflow-hidden rounded-xl border border-stone-800 bg-stone-900 shadow-sm"
+  >
     {% for pizza in pizzas %}
-      <div class="flex items-center justify-between gap-4 border-b border-stone-800 p-4 last:border-b-0">
-        <div>
-          <h3 class="font-medium text-stone-100">
-            {{ pizza.nome }}
-          </h3>
-          <p class="mt-1 text-sm text-amber-400">
-            R$ {{ pizza.preco }}
-          </p>
-        </div>
-        <a href="#"
-           class="text-sm text-stone-400 transition hover:text-amber-400">
-          <i class="fa-solid fa-pen-to-square mr-1"></i>
-          Alterar
-        </a>
-      </div>
-    {% empty %}
-      <div class="px-4 py-10 text-center">
-        <i class="fa-solid fa-pizza-slice mb-3 text-3xl text-stone-600"></i>
-        <p class="text-stone-300">
-          Nenhuma pizza cadastrada.
+    <div
+      class="flex items-center justify-between gap-4 border-b border-stone-800 p-4 transition-colors last:border-b-0 hover:bg-stone-800/40"
+    >
+      <div class="min-w-0">
+        <h3 class="truncate font-medium text-stone-100">{{ pizza.nome }}</h3>
+
+        <p class="mt-1 text-sm font-medium text-amber-400">
+          R$ {{ pizza.preco }}
         </p>
       </div>
+
+      <!-- Ações -->
+      <div class="flex shrink-0 items-center gap-2">
+        <!-- Alterar -->
+        <a
+          href="{% url 'alterar_pizza' pizza.id %}"
+          title="Alterar pizza"
+          aria-label="Alterar pizza {{ pizza.nome }}"
+          class="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-700 bg-stone-800 text-stone-300 transition duration-200 hover:border-amber-500/50 hover:bg-amber-500/10 hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400"
+        >
+          <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+
+        <!-- Excluir -->
+        <a
+          href="{% url 'excluir_pizza' pizza.id %}"
+          title="Excluir pizza"
+          aria-label="Excluir pizza {{ pizza.nome }}"
+          class="flex h-9 w-9 items-center justify-center rounded-lg border border-stone-700 bg-stone-800 text-stone-300 transition duration-200 hover:border-red-500/50 hover:bg-red-500/10 hover:text-red-400 focus:outline-none focus:ring-2 focus:ring-red-400"
+        >
+          <i class="fa-solid fa-trash-can"></i>
+        </a>
+      </div>
+    </div>
+
+    {% empty %}
+    <div class="px-4 py-12 text-center">
+      <div
+        class="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-full border border-stone-800 bg-stone-950"
+      >
+        <i class="fa-solid fa-pizza-slice text-2xl text-stone-600"></i>
+      </div>
+
+      <p class="font-medium text-stone-300">Nenhuma pizza cadastrada.</p>
+
+      <p class="mt-1 text-sm text-stone-500">
+        Cadastre sua primeira pizza para começar.
+      </p>
+
+      <a
+        href="{% url 'nova_pizza' %}"
+        class="mt-4 inline-flex items-center gap-2 rounded-lg border border-amber-500/30 bg-amber-500 px-4 py-2 text-sm font-semibold text-stone-950 transition hover:bg-amber-400"
+      >
+        <i class="fa-solid fa-plus"></i>
+        Cadastrar pizza
+      </a>
+    </div>
     {% endfor %}
   </div>
 </div>
+
 {% endblock %}
