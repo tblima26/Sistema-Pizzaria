@@ -1,9 +1,9 @@
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Pizza
 from .forms import PizzaForm
 
-
+@login_required
 def index(request):
     pizzas = Pizza.objects.all()
     return render(request, "index.html", {
@@ -11,7 +11,7 @@ def index(request):
     })
 
 
-
+@login_required
 def nova_pizza(request):
     if request.method == 'POST':
         form = PizzaForm(request.POST)
@@ -30,7 +30,7 @@ def nova_pizza(request):
         'categorias': Pizza.CATEGORIAS,
     })
 
-
+@login_required
 def alterar_pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
 
@@ -54,13 +54,13 @@ def alterar_pizza(request, pizza_id):
 
   
 
-
+@login_required
 def excluir_pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     pizza.delete()
     return redirect('index')
 
-
+@login_required
 def buscar_pizza(request):
     query = request.GET.get('buscar', '').strip()
 
@@ -70,6 +70,7 @@ def buscar_pizza(request):
         'pizzas': pizzas,
         'query': query,
     })
-
+    
+@login_required
 def nova_pizza_sucesso(request):
     return render(request, 'nova-pizza-sucesso.html')
