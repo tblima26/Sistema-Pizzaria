@@ -1,104 +1,100 @@
-# Sistema Pizzaria
 
-Sistema de gerenciamento de pizzaria desenvolvido com Django como projeto final de curso de Python. O objetivo do projeto foi criar uma aplicação completa de CRUD, com autenticação de usuários, banco de dados, templates responsivos e interface amigável para controle de produtos.
+# 🍕 Sistema Pizzaria
 
-## Visão geral
+<p align="center">
+  Sistema de gerenciamento de pizzaria desenvolvido com Django como projeto final de um curso de Python.
+  <br>
+  Uma aplicação web para praticar autenticação, CRUD, persistência de dados e desenvolvimento de interfaces.
+</p>
 
-Este projeto simula o painel administrativo de uma pizzaria, permitindo que o usuário:
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Django">
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+</p>
 
-- crie uma conta e faça login;
-- cadastre novas pizzas;
-- visualize todas as pizzas em uma listagem;
-- edite os dados de uma pizza existente;
-- exclua registros;
-- busque pizzas por nome;
-- mantenha os dados organizados por categoria.
+---
 
-A aplicação foi pensada como um projeto prático para consolidar conceitos de Python, Django, autenticação, models, formulários, rotas, templates e integração com banco de dados.
+## 📌 Sobre o projeto
 
-## Funcionalidades principais
+O **Sistema Pizzaria** é uma aplicação web desenvolvida para consolidar os conhecimentos adquiridos durante um curso de Python, utilizando o framework Django.
 
-### 1. Autenticação de usuários
+O sistema oferece um painel administrativo para gerenciar pizzas, com autenticação de usuários, cadastro de produtos, edição, exclusão, pesquisa e organização por categorias.
 
-A aplicação conta com um sistema de login e cadastro de usuário usando o mecanismo nativo do Django.
+O projeto reúne conceitos fundamentais do desenvolvimento web, desde a modelagem dos dados até a construção de uma interface responsiva.
 
-- cadastro de novos usuários;
-- login com username e senha;
-- validação de senha e confirmação;
-- prevenção de usuários duplicados;
-- bloqueio de acesso a páginas internas sem autenticação.
+## ✨ Funcionalidades
 
-As views de autenticação estão na app `apps/login` e utilizam `authenticate`, `login`, `logout` e o model `User` do Django.
+| Funcionalidade | Descrição |
+|:--|:--|
+| 🔐 Autenticação | Cadastro, login e logout de usuários. |
+| ➕ Cadastro | Inclusão de novas pizzas no sistema. |
+| 📋 Listagem | Visualização das pizzas cadastradas. |
+| ✏️ Edição | Atualização dos dados de uma pizza. |
+| 🗑️ Exclusão | Remoção de pizzas cadastradas. |
+| 🔎 Pesquisa | Busca por nome, sem distinção entre maiúsculas e minúsculas. |
+| 🏷️ Categorias | Organização das pizzas por tipo. |
+| ✅ Validação | Verificação dos dados enviados pelos formulários. |
+| 💬 Mensagens | Exibição de erros e validações nos formulários. |
+| 🔒 Proteção | Restrição de acesso às páginas internas para usuários não autenticados. |
 
-### 2. CRUD completo de pizzas
+## 🍕 Gerenciamento de pizzas
 
-A funcionalidade principal do sistema está na app `apps/crud`, onde o usuário pode realizar operações completas sobre uma entidade `Pizza`.
+Cada pizza possui os seguintes campos:
 
-- criar nova pizza;
-- listar pizzas cadastradas;
-- alterar dados da pizza;
-- excluir pizza;
-- buscar pizza por nome.
+| Campo | Descrição |
+|:--|:--|
+| `nome` | Nome da pizza. |
+| `preco` | Preço da pizza, com tratamento de valores monetários. |
+| `categoria` | Categoria selecionada entre as opções disponíveis. |
+| `ingredientes` | Ingredientes utilizados na pizza. |
 
-A model `Pizza` possui os campos:
+### Categorias disponíveis
 
-- `nome`
-- `preco`
-- `categoria`
-- `ingredientes`
+- **Tradicional**
+- **Especial**
+- **Doce**
 
-### 3. Organização por categorias
+As categorias são definidas utilizando `choices` no modelo Django, facilitando a padronização dos registros.
 
-As pizzas podem ser classificadas em categorias, como:
+## 🔑 Autenticação de usuários
 
-- Tradicional
-- Especial
-- Doce
+O sistema utiliza o mecanismo nativo de autenticação do Django, com as operações de cadastro, login e logout.
 
-Essa estrutura foi implementada com `choices` no campo `categoria`, deixando a organização mais clara e facilitando futuras expansões.
+Entre os recursos implementados estão:
 
-### 4. Busca e filtragem
+- Cadastro de usuários.
+- Autenticação com nome de usuário e senha.
+- Confirmação e validação de senha.
+- Prevenção de nomes de usuário duplicados.
+- Proteção de páginas internas por meio de `@login_required`.
 
-A aplicação possui uma funcionalidade de busca por nome da pizza, com filtro case-insensitive (`icontains`). Isso ajuda a localizar rapidamente uma pizza específica na base de dados.
+As funcionalidades de autenticação estão organizadas na aplicação `apps/login`.
 
-### 5. Validação e tratamento de dados
+## 🛠️ Tecnologias utilizadas
 
-O projeto usa `ModelForm` e campos personalizados para garantir que os dados sejam validados corretamente.
+| Tecnologia | Finalidade |
+|:--|:--|
+| [Python](https://www.python.org/) | Linguagem de programação. |
+| [Django](https://www.djangoproject.com/) | Framework web e gerenciamento da aplicação. |
+| [SQLite](https://www.sqlite.org/) | Banco de dados relacional local. |
+| [HTML5](https://developer.mozilla.org/pt-BR/docs/Web/HTML) | Estrutura das páginas. |
+| [Tailwind CSS](https://tailwindcss.com/) | Estilização por classes utilitárias. |
+| [DaisyUI](https://daisyui.com/) | Componentes visuais para a interface. |
+| [Font Awesome](https://fontawesome.com/) | Ícones da interface. |
+| [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript) | Interações no frontend. |
+| [Git](https://git-scm.com/) | Controle de versão. |
+| [GitHub](https://github.com/) | Hospedagem do código-fonte. |
 
-Exemplos:
+## 🏗️ Arquitetura do projeto
 
-- preço com conversão de moeda no formato `R$ 39,90`;
-- validação de valor mínimo;
-- controle de campos obrigatórios;
-- mensagens de erro exibidas no formulário.
-
-### 6. Interface visual moderna
-
-A parte visual foi construída com templates HTML e estilização por meio de:
-
-- Tailwind CSS;
-- DaisyUI;
-- Font Awesome;
-- JavaScript para pequenas interações front-end.
-
-A interface foi pensada para apresentar um visual mais profissional, com layout em tons escuros e elementos card-style, com foco em usabilidade e boa experiência visual.
-
-## Tecnologias utilizadas
-
-- Python
-- Django
-- SQLite
-- HTML
-- CSS
-- Tailwind CSS
-- DaisyUI
-- JavaScript
-- Git/GitHub
-
-## Estrutura do projeto
+A aplicação segue a organização MVT do Django, separando modelos, views e templates, com funcionalidades divididas em aplicações específicas.
 
 ```text
 Sistema-Pizzaria/
+│
 ├── apps/
 │   ├── crud/
 │   │   ├── templates/
@@ -108,134 +104,158 @@ Sistema-Pizzaria/
 │   │   ├── urls.py
 │   │   ├── views.py
 │   │   └── ...
+│   │
 │   └── login/
 │       ├── templates/
 │       ├── urls.py
 │       ├── views.py
 │       └── ...
+│
 ├── config/
 │   ├── settings.py
 │   ├── urls.py
 │   ├── asgi.py
 │   └── wsgi.py
+│
 ├── db.pizzaria.sqlite3
 ├── manage.py
 ├── requirements.txt
-├── README.md
-└── ...
+└── README.md
 ```
 
-## Como foi construído
+### Organização das aplicações
 
-O projeto foi criado seguindo a arquitetura padrão do Django:
+- **`apps/crud`**: gerenciamento das pizzas, modelos, formulários, views e templates relacionados.
+- **`apps/login`**: autenticação e gerenciamento do acesso dos usuários.
+- **`config`**: configurações gerais, rotas principais e arquivos de inicialização do projeto.
+- **`manage.py`**: utilitário de linha de comando do Django.
+- **`requirements.txt`**: dependências necessárias para executar a aplicação.
 
-1. Criação do projeto principal em `config/` com `django-admin startproject`.
-2. Separação das funcionalidades em apps:
-   - `apps/login` para autenticação;
-   - `apps/crud` para gerenciamento das pizzas.
-3. Definição da model `Pizza` em `apps/crud/models.py`.
-4. Criação dos formulários em `apps/crud/forms.py` para validar os dados da pizza.
-5. Desenvolvimento das views em `apps/crud/views.py` para renderizar e processar os formulários.
-6. Configuração das rotas em `apps/crud/urls.py` e `apps/login/urls.py`.
-7. Implementação dos templates na pasta `templates` para o frontend do sistema.
-8. Configuração do banco de dados SQLite no `settings.py`.
-9. Uso de autenticação do Django para proteger páginas internas com `@login_required`.
+## 🗄️ Banco de dados
 
-## Banco de dados
+O projeto utiliza SQLite, um banco de dados relacional leve, adequado para desenvolvimento local e projetos de aprendizado.
 
-O projeto utiliza SQLite como banco de dados local, que é simples, leve e ideal para aplicações de estudo e pequenos projetos.
+Os modelos Django definem a estrutura dos dados, enquanto as migrações permitem criar e atualizar as tabelas do banco.
 
-O banco armazena as pizzas cadastradas e mantém a estrutura definida pelo modelo do Django. Isso permite persistência dos dados sem necessidade de configuração extra de banco em ambiente local.
+O arquivo de banco de dados incluído na estrutura é `db.pizzaria.sqlite3`.
 
-## CSS e frontend
+## 🎨 Interface e experiência visual
 
-A parte visual foi um ponto importante do projeto. O frontend foi trabalhado com:
+A interface utiliza uma combinação de tecnologias para proporcionar uma experiência organizada e agradável.
 
-- HTML estruturado;
-- templates reutilizáveis;
-- classes utilitárias do Tailwind;
-- uso do DaisyUI para melhorar a aparência dos componentes;
-- estilos para formulários, botões, cards e páginas de login.
+- **Tailwind CSS:** estilização responsiva e consistente.
+- **DaisyUI:** componentes visuais e elementos de interface.
+- **Font Awesome:** ícones para melhorar a identificação das ações.
+- **JavaScript:** pequenas interações no frontend.
+- **Templates Django:** reutilização da estrutura HTML entre as páginas.
 
-Além disso, o projeto usa arquivos estáticos em `apps/crud/static/js` e configurações do Django para servir recursos HTML/CSS/JS de forma organizada.
+O visual utiliza tons escuros e componentes em formato de cards, priorizando a organização das informações e a facilidade de navegação.
 
-## P.Q. do projeto
+## ⚙️ Como executar o projeto
 
-O objetivo didático do projeto foi consolidar os conceitos aprendidos no curso de Python, principalmente em relação ao framework Django.
+### Pré-requisitos
 
-O "P.Q." (projeto-qualificação / propósito do projeto) foi criar uma aplicação funcional e completa, que reunisse os principais pilares do desenvolvimento web:
+- Python instalado.
+- Git instalado, caso deseje clonar o repositório.
+- Terminal ou editor de código de sua preferência.
 
-- autenticação;
-- CRUD;
-- organização em apps;
-- modelagem de dados;
-- templates;
-- uso de banco de dados;
-- frontend com CSS moderno;
-- boas práticas de estrutura MVC/MVT.
+### 1. Clone o repositório
 
-Em outras palavras, esse projeto representa a etapa final em que o aluno coloca em prática, de forma integrada, vários conhecimentos adquiridos durante o curso.
+```bash
+git clone URL_DO_REPOSITORIO
+```
 
-## Como rodar o projeto
+Entre na pasta do projeto:
 
-### 1. Crie um ambiente virtual
+```bash
+cd Sistema-Pizzaria
+```
+
+> Substitua `URL_DO_REPOSITORIO` pelo endereço real do repositório.
+
+### 2. Crie um ambiente virtual
 
 ```bash
 python -m venv venv
 ```
 
-### 2. Ative o ambiente virtual
+### 3. Ative o ambiente virtual
 
-Windows:
+**Windows:**
 
 ```bash
 venv\Scripts\activate
 ```
 
-Linux/macOS:
+**Linux/macOS:**
 
 ```bash
 source venv/bin/activate
 ```
 
-### 3. Instale as dependências
+### 4. Instale as dependências
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Execute as migrações
+### 5. Execute as migrações
 
 ```bash
 python manage.py migrate
 ```
 
-### 5. Inicie o servidor
+### 6. Inicie o servidor
 
 ```bash
 python manage.py runserver
 ```
 
-Acesse:
+### 7. Acesse a aplicação
 
-```text
-http://localhost:8000/
-```
+Abra o navegador no endereço:
 
-## Observações
+**http://localhost:8000/**
 
-- O projeto foi desenvolvido como exemplo de aplicação web completa em Django.
-- O foco principal está no aprendizado prático e na aplicação dos conceitos do curso.
-- O sistema pode ser expandido futuramente para incluir pedidos, clientes, carrinho, relatórios e painel administrativo mais completo.
+## 🎯 Objetivos de aprendizagem
 
-## Contribuição
+Este projeto foi desenvolvido com o propósito de aplicar, de maneira integrada, os principais conceitos estudados durante a formação em Python e Django.
 
-Este projeto foi elaborado como exercício acadêmico e de aprendizagem. Qualquer melhoria, refatoração ou expansão é bem-vinda.
+Os conhecimentos praticados incluem:
 
-## Autor
+- Desenvolvimento de aplicações web com Django.
+- Organização de funcionalidades em apps.
+- Criação e manipulação de modelos.
+- Operações CRUD completas.
+- Autenticação e controle de acesso.
+- Construção e validação de formulários.
+- Consultas e filtros no banco de dados.
+- Uso de templates e arquivos estáticos.
+- Desenvolvimento de interfaces com Tailwind CSS.
+- Controle de versão com Git.
 
-Projeto desenvolvido como parte de um curso de Python/Django, com foco em criação de um sistema completo de gestão de pizzaria.
+## 🚀 Possíveis melhorias futuras
+
+O projeto pode ser expandido para contemplar novas funcionalidades, como:
+
+- Cadastro e gerenciamento de clientes.
+- Registro e acompanhamento de pedidos.
+- Carrinho de compras.
+- Relatórios de vendas.
+- Painel administrativo ampliado.
+
+Essas melhorias são possibilidades futuras e não fazem parte das funcionalidades descritas na versão atual.
+
+## 🤝 Contribuição
+
+Este projeto foi desenvolvido como exercício acadêmico e de aprendizagem. Sugestões, melhorias e refatorações são bem-vindas.
+
+## 👨‍💻 Autor
+
+Projeto desenvolvido como parte de um curso de Python e Django, com foco na construção de uma aplicação web completa para gerenciamento de pizzaria.
 
 ---
 
-Se quiser, também posso preparar uma segunda versão do README com um visual mais profissional de portfolio, com badges, screenshots e uma apresentação mais "GitHub-ready".
+<p align="center">
+  Desenvolvido para praticar, aprender e evoluir na programação. 🍕
+</p>
